@@ -54,14 +54,13 @@ gcc -fopenmp -Wall -Wextra task1.c -o task1
 ### `heapify(NumberInfo arr[], int n, int i, int (*compare_func)(const void *, const void *))`
 Перетворює піддерево в коректну купу для HeapSort.
 
-### `parallel_heap_sort(NumberInfo arr[], int n, int (*compare_func)(const void *, const void *))`
-Реалізація **паралельного HeapSort**.
+### `heap_sort(NumberInfo arr[], int n, int (*compare_func)(const void *, const void *))`
+Реалізація **HeapSort**.
 
 ## Роль паралелізації
 Програма використовує OpenMP для **прискорення обчислень** шляхом розподілу завдань між кількома потоками. Це дозволяє:
 - Виконувати QuickSort на двох підмасивах одночасно
 - Прискорювати MergeSort, обробляючи ліву та праву частини масиву в паралельних потоках
-- Оптимізувати HeapSort через паралельну побудову купи
 
 ## Висновок
 Програма дозволяє ефективно сортувати числа за значенням та частотою з використанням різних алгоритмів та паралелізації. OpenMP допомагає значно зменшити час виконання при обробці великих наборів даних.
