@@ -20,7 +20,7 @@ void parallel_qsort(NumberInfo arr[], int low, int high, int (*compare_func)(con
 void parallel_merge(NumberInfo arr[], int left, int mid, int right, int (*compare_func)(const void *, const void *));
 void parallel_merge_sort(NumberInfo arr[], int left, int right, int (*compare_func)(const void *, const void *));
 void heapify(NumberInfo arr[], int n, int i, int (*compare_func)(const void *, const void *));
-void parallel_heap_sort(NumberInfo arr[], int n, int (*compare_func)(const void *, const void *));
+void heap_sort(NumberInfo arr[], int n, int (*compare_func)(const void *, const void *));
 
 int main(int argc, char *argv[]) {
     if (argc < 7) {
@@ -67,7 +67,7 @@ int main(int argc, char *argv[]) {
         parallel_merge_sort(number_info, 0, count - 1, compare_func);
     }
     else if (strcmp(sort_type, "heap") == 0) {
-        parallel_heap_sort(number_info, count, compare_func);
+        heap_sort(number_info, count, compare_func);
     }
     else {
         printf("Unknown sort type: %s\n", sort_type);
@@ -221,7 +221,7 @@ void heapify(NumberInfo arr[], int n, int i, int (*compare_func)(const void *, c
     }
 }
 
-void parallel_heap_sort(NumberInfo arr[], int n, int (*compare_func)(const void *, const void *)) {
+void heap_sort(NumberInfo arr[], int n, int (*compare_func)(const void *, const void *)) {
     for (int i = n / 2 - 1; i >= 0; i--) {
         heapify(arr, n, i, compare_func);
     }
